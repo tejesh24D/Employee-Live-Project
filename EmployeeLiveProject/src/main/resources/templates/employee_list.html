@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Employee List</h1>
+<p>Welcome, <strong th:text="${userName}"></strong>!</p>
+<a href="/employees/add">Add Employee</a>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Position</th>
+        <th>Salary</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.department}"></td>
+        <td th:text="${employee.position}"></td>
+        <td th:text="${employee.salary}"></td>
+        <td>
+            <a th:href="@{/employees/edit/{id}(id=${employee.id})}">Edit</a>
+            <a th:href="@{/employees/delete/{id}(id=${employee.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

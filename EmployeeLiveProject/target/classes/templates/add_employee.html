@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<h1>Add Employee</h1>
+<form action="#" th:action="@{/employees/add}" th:object="${employee}" method="post">
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" required />
+    <label>Department:</label>
+    <input type="text" th:field="*{department}" required />
+    <label>Position:</label>
+    <input type="text" th:field="*{position}" required />
+    <label>Salary:</label>
+    <input type="number" th:field="*{salary}" required />
+    <button type="submit">Add Employee</button>
+</form>
+<a href="/employees">Back to Employee List</a>
+</body>
+</html>
